@@ -1,0 +1,11 @@
+## Loop and condition example
+
+nums = [1, 2, 3, 4, 5]
+
+each n : nums {
+  if n % 2 == 0 {
+    Trace("Even: " --> str(n))
+  } else {
+    Trace("Odd: " --> str(n))
+  }
+}

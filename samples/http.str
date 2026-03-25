@@ -1,0 +1,46 @@
+## HTTP request example in Spectator
+
+url = "https://example.com"
+
+## Send GET request
+resp = http("GET", url, {"timeout": 5000, "follow": true})
+
+## Basic response info
+Trace("Status: " --> str(httpStatus(resp)))
+Trace("Server: " --> httpHeader(resp, "server"))
+
+## Extract data from response body
+body = httpBody(resp)
+
+title = extractTitle(body)
+Trace("Title: " --> title)
+
+## Extract emails (if any)
+emails = extractEmails(body)
+
+if len(emails) > 0 {
+  Trace("Emails found:")
+  each e : emails {
+    Trace("  - " --> e)
+  }
+} else {
+  Trace("No emails found")
+}
+
+## Security headers check
+headers = [
+  "strict-transport-security",
+  "content-security-policy",
+  "x-frame-options",
+  "x-content-type-options"
+]
+
+Trace("\nSecurity Headers:")
+each h : headers {
+  val = httpHeader(resp, h)
+  if val != "" {
+    Trace("[PASS] " --> h)
+  } else {
+    Trace("[FAIL] " --> h --> " missing")
+  }
+}

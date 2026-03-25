@@ -1,0 +1,4 @@
+print("===============Recon Sample===============\n")
+x = Capture("Enter the link: ")
+do --> Recon(x)
+y = Capture("Press any key to continue......")
