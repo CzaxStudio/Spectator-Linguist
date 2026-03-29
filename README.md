@@ -1,7 +1,7 @@
-# Spectator-Linguist
+# SpectatorDocs
 Official Docs for the Spectator language.
 
-**Go to the Docs folder and learn Spectator GUI, http, and also the syntax.**
+**Go to the Docs folder and learn Spectator GUI, TUI and more**
 
 Download Spectator from the Website for your OS
 
